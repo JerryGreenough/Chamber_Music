@@ -20,12 +20,27 @@ The enitre repertoire of chamber music contains thousands of works, only a few o
 
 # Database Structure
 
-* data - holds the .csv files that contain the data from which the database is built
-* images - holds the image you see above
+When built, the Chamber_music database contains three simple tables:
+
+* Composers - contains a list of composers along with pertinent fields such as:
+    * first name(s)
+    * last name
+    * birth year
+    * death year
+    * nationality
+    * era (e.g. "Romantic", "Classical", "20th Century")
+* Work_Types - contains a list of possible chamber work types, each of which has a field:
+    * description (e.g. "Piano Trio", "Violin Sonata", "Nonet"
+* Works - contains a list of chamber music works with relecant feaures plus tow foreign keys that link to the Composers and Work_Types tables.
+    * composer_id (foreign key pointing to the primary key in the Composers table)
+    * work_type_id (foreign key pointing to the primary key in the Work_Types table)
 
 # Project Directories
 
-More to follow.
+* credential - holds a single python script to return the useranme, password and end-point for the database connection
+* data - holds the .csv files that contain the data from which the database is built
+* images - holds the image of musical text from the previous section (see above)
+* sql - contains the SQL scripts that can be used to build the database without using SQLAlchemy
 
 # Acknowledgements
 
