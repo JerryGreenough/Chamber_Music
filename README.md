@@ -31,9 +31,15 @@ When built, the Chamber_music database contains three simple tables:
     * era (e.g. "Romantic", "Classical", "20th Century")
 * Work_Types - contains a list of possible chamber work types, each of which has a field:
     * description (e.g. "Piano Trio", "Violin Sonata", "Nonet"
-* Works - contains a list of chamber music works with relecant feaures plus tow foreign keys that link to the Composers and Work_Types tables.
+* Works - contains a list of chamber music works with relecant feaures plus two foreign keys that link to the Composers and Work_Types tables.
     * composer_id (foreign key pointing to the primary key in the Composers table)
     * work_type_id (foreign key pointing to the primary key in the Work_Types table)
+    * title
+    * key - the musical key in which the work is deemed to have been written (not always present)
+    * opus_no
+    * work_no
+    * name - sometimes the work is given a nick-name that represents the character of the work
+    * completion_year
 
 # Project Directories
 
