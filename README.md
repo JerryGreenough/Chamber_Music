@@ -50,10 +50,14 @@ When built, the Chamber_music database contains three simple tables:
 
 # Database Creation
 
+A simple, free-of-charge localhost database can be created using a visual database design tool such as MySQL Workbench or pgAdmin (for postgreSQL) to name but two. The following YouTube tutorial from Mosh Hamedani contains particaularly clear instructions on how to do this:
+
+http://www.youtube.com/watch?v=7S_tz1z_5bA
+
+An alternative approach would be to set up a database using the RDS service from Amazon Web Services. Neal Davis' introduction to AWS provides easily digestible instructions on how to create a relational database in the cloud.
+
 http://www.youtube.com/watch?v=ulprqHHWlng
 
-Mosh Hamedani
-https//www.youtube.com/watch?v=7S_tz1z_5bA
 
 ## Prerequisites
 
