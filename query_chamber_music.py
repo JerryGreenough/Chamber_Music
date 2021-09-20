@@ -18,22 +18,41 @@ def main():
 
     print("Connecting to ", estring, "...")
 
+    # Create an engine object - seomthing containing all the data needed to
+    # connect to the database.
+
     engine = create_engine(estring)
 
     # Create a Session class.
 
     Session = sessionmaker(bind=engine)
 
-    # Create a session by instantiating the Session class.
+    # Create a session by instantiating the Session class. This will connect
+    # us to the database in accordance with the parameters of the engine.
 
     session = Session()
     
+    # Create the ORM base class, which will result in an AutomapBase class. This class 
+    # enables the generation of a quick and easy mapping from an existing SQL database.
+    
     Base = automap_base()
+    
+    # Reflect the database's schema and produce mappings of the database tables 
+    # via the previously defined engine. The classes that are produced by prepare()
+    # load information about the corresponding table's schema into a dedicated
+    # class (reflection).
+    
     Base.prepare(engine, reflect = True)
+    
+    # These are the classes that represent the mapped database tables. 
+    # The assignements produce an easy-to-read alias for each class.
      
     Composers   = Base.classes.Composers
     Works       = Base.classes.Works
     Work_Types  = Base.classes.Work_Types
+    
+    # Some queries ....
+    
     
  
     # QUERY: 

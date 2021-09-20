@@ -17,17 +17,30 @@ def main():
 
     print("Connecting to ", estring, "...")
 
+    # Create an engine object - seomthing containing all the data needed to
+    # connect to the database.
+
     engine = create_engine(estring)
 
     # Create a Session class.
 
     Session = sessionmaker(bind=engine)
-
-    # Create a session by instantiating the Session class.
+    
+    # Create a session by instantiating the Session class. This will connect
+    # us to the database in accordance with the parameters of the engine.
 
     session = Session()
     
+    # Create the ORM base class. This class will allow us to create new classes that
+    # will be mapped to new tables inside the database.
+    
     Base = declarative_base()
+    
+    # Reflect the database's schema and produce mappings of the database tables 
+    # via the previously defined engine. The classes that are produced by prepare()
+    # load information about the corresponding table's schema into a dedicated
+    # class (reflection).
+    
     Base.metadata.reflect(engine)
     
     print("Building the Chamber_Music DB ...")
