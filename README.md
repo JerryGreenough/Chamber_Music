@@ -48,6 +48,14 @@ When built, the Chamber_music database contains three simple tables:
 * images - holds the image of musical text from the previous section (see above)
 * sql - contains the SQL scripts that can be used to build the database without using SQLAlchemy
 
+# Database Creation
+
+## Prerequisites
+
+The following libraries should be installed:
+
+* SQLAlchemy
+
 # Acknowledgements
 
 The Customers table was largely constructed from data scraped from the following website:
