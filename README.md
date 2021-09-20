@@ -65,15 +65,17 @@ There are two approaches to initializing the database.
 2. The database can be initialized using SQLAlchemy by executing a Python script cointained in the projects top level directory:
 
 ```
-python build_chamber_music
+python build_chamber_music.py
 ```
 
 
-## Prerequisites
+## Python Prerequisites
 
-The following libraries should be installed:
+Both the database creation and database querying scripts are dependent on the SQLAlchemy library, which can be installed using:
 
-* SQLAlchemy
+```
+pip install SQLAlchemy
+```
 
 # Acknowledgements
 
