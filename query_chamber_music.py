@@ -7,7 +7,7 @@ from sqlalchemy.ext.automap import automap_base
 
 from sqlalchemy import Column, Integer, String, Date, Sequence
 
-from connect_chamber_music import connection_string
+from connect_utils import connection_string
 from utils_chamber_music import classical_work_string
 
 import csv

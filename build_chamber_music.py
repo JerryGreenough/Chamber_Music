@@ -7,7 +7,7 @@ from sqlalchemy.ext.declarative import declarative_base
 
 from sqlalchemy import Column, Integer, String, Date, Sequence
 
-from connect_chamber_music import connection_string
+from connect_utils import connection_string
 
 import csv
 import sys
