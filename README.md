@@ -58,7 +58,7 @@ An alternative approach would be to provision a database using the RDS service f
 
 http://www.youtube.com/watch?v=ulprqHHWlng
 
-Once the database has been provisioned, its endpoint along with appropriate username and password credentials should be noted and recorded in the ./credentials/credentials.py script. This script will be required during both database creation and database querying when using SQLAlchemy.
+Once the database has been provisioned, its endpoint along with appropriate username and password credentials should be noted and recorded in the ```./credentials/credentials.py``` script. This script will be required during both database creation and database querying when using SQLAlchemy.
 
 There are two approaches to initializing the database. 
 1. A SQL script "Create_Chamber_Music.sql" is availbale in the sql directory. This script can be used within a database design tool without the need for any Python interaction using SQLAlchemy.
