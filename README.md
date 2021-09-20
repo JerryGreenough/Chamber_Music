@@ -11,7 +11,7 @@ The purpose of this project is to provide a simple demonstration of how the ORM 
     <strong><small>The introductory bars of Schubert's Piano Trio No. 1 in B flat major</small></strong>
 </p>
 
-The enitre repertoire of chamber music contains thousands of works, only a few of which are currently represented by the SQL scripts presented in this project. However, it is hoped that at a later date a more complete representation of the repertoire will be made available. Every effort has been made to ensure accuracy of the database content - however the purpose of the project is not to provide a tool for musical research, but rather as means to demonstrate SQLAlchemy as a means to perform SQL join and query operations that potentially answer questions such as:
+The enitre repertoire of chamber music contains thousands of works, only a few of which are currently represented by the SQL scripts presented in this project. However, it is hoped that at a later date a more complete representation of the repertoire will be made available. Every effort has been made to ensure accuracy of the database content - however the purpose of the project is not to provide a tool for musical research, but rather to demonstrate SQLAlchemy as a means to perform SQL join and query operations that potentially answer questions such as:
 
 - How many string quartets did Franz Joseph Haydn write ?
 - List all the piano quartets composed during the romantic era.
