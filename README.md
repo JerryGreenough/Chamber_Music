@@ -50,6 +50,11 @@ When built, the Chamber_music database contains three simple tables:
 
 # Database Creation
 
+http://www.youtube.com/watch?v=ulprqHHWlng
+
+Mosh Hamedani
+https//www.youtube.com/watch?v=7S_tz1z_5bA
+
 ## Prerequisites
 
 The following libraries should be installed:
