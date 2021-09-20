@@ -50,13 +50,23 @@ When built, the Chamber_music database contains three simple tables:
 
 # Database Creation
 
-A simple, free-of-charge localhost database can be created using a visual database design tool such as MySQL Workbench or pgAdmin (for postgreSQL) to name but two. The following YouTube tutorial from Mosh Hamedani contains particaularly clear instructions on how to do this:
+A simple, free-of-charge localhost database can be provisioned using a visual database design tool such as MySQL Workbench or pgAdmin (for postgreSQL) to name but two. The following YouTube tutorial from Mosh Hamedani contains particaularly clear instructions on how to do this:
 
 http://www.youtube.com/watch?v=7S_tz1z_5bA
 
-An alternative approach would be to set up a database using the RDS service from Amazon Web Services. Neal Davis' introduction to AWS provides easily digestible instructions on how to create a relational database in the cloud.
+An alternative approach would be to provision a database using the RDS service from Amazon Web Services. Neal Davis' introduction to AWS provides easily digestible instructions on how to create a relational database in the cloud.
 
 http://www.youtube.com/watch?v=ulprqHHWlng
+
+Once the database has been provisioned, its endpoint along with appropriate username and password credentials should be noted and recorded in the ./credentials/credentials.py script. This script will be required during both database creation and database querying when using SQLAlchemy.
+
+There are two approaches to initializing the database. 
+1. A SQL script "Create_Chamber_Music.sql" is availbale in the sql directory. This script can be used within a database design tool without the need for any Python interaction using SQLAlchemy.
+2. The database can be initialized using SQLAlchemy by executing a Python script cointained in the projects top level directory:
+
+```
+python build_chamber_music
+```
 
 
 ## Prerequisites
