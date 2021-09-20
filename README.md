@@ -70,7 +70,7 @@ python build_chamber_music.py
 
 # Database Inspection
 
-An example of how to query the database using SQLAlchemy functionality is provided in the script ```query_chamber_music.py```, which contains use-cases such as:
+An example of how to query the database using SQLAlchemy functionality is provided in the script ```query_chamber_music.py```, which contains the Python code required to process queries such as:
 
 * List all the septets in the database
 * List all piano quartets by composers from the romantic era and ordered by the composer's last name
