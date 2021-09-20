@@ -62,10 +62,27 @@ Once the database has been provisioned, its endpoint along with appropriate user
 
 There are two approaches to initializing the database. 
 1. A SQL script "Create_Chamber_Music.sql" is availbale in the sql directory. This script can be used within a database design tool without the need for any Python interaction using SQLAlchemy.
-2. The database can be initialized using SQLAlchemy by executing a Python script cointained in the projects top level directory:
+2. The database can be initialized using SQLAlchemy by executing a Python script cointained in the project's top level directory:
 
 ```
 python build_chamber_music.py
+```
+
+# Database Inspection
+
+An example of how to query the database using SQLAlchemy functionality is provided in the script ```query_chamber_music.py```, which contains use-cases such as:
+
+* List all the septets in the database
+* List all piano quartets by composers from the romantic era and ordered by the composer's last name
+* List all quartets by composers from the romantic era and ordered by the composer's last name 
+* Count the works (for each work type) composed during the Classical era 
+* List the works completed by composers from the Classical era on or after 1780
+* List the 20th Century works completed during or after 1910
+
+The script is executed from the project's top level directory:
+
+```
+python query_chamber_music.py
 ```
 
 
