@@ -88,10 +88,11 @@ python query_chamber_music.py
 
 ## Python Prerequisites
 
-Both the database creation and database querying scripts are dependent on the SQLAlchemy and PyMYSQL libraries, which can be installed using:
+Both the database creation and database querying scripts are dependent on the SQLAlchemy, SQLAlchemy_utils and PyMYSQL libraries, which can be installed using:
 
 ```
 pip install SQLAlchemy
+pip install sqlalchemy_utils
 pip install PyMySQL
 ```
 
