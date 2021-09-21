@@ -92,7 +92,7 @@ Both the database creation and database querying scripts are dependent on the SQ
 
 ```
 pip install SQLAlchemy
-pip install sqlalchemy_utils
+pip install SQLAlchemy_utils
 pip install PyMySQL
 ```
 
