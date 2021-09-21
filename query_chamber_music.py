@@ -6,8 +6,9 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.automap import automap_base
 
 from sqlalchemy import Column, Integer, String, Date, Sequence
+from sqlalchemy_utils import database_exists, create_database
 
-from connect_utils import connection_string
+from connect_chamber_music import connection_string
 from utils_chamber_music import classical_work_string
 
 import csv
@@ -17,11 +18,15 @@ def main():
     estring = connection_string()
 
     print("Connecting to ", estring, "...")
-
+    
     # Create an engine object - seomthing containing all the data needed to
     # connect to the database.
 
     engine = create_engine(estring)
+    
+    if not database_exists(engine.url):
+        print("The chamber_music DB does not exist on the endpoint.")
+        sys.exit(1)
 
     # Create a Session class.
 
@@ -47,12 +52,11 @@ def main():
     # These are the classes that represent the mapped database tables. 
     # The assignements produce an easy-to-read alias for each class.
      
-    Composers   = Base.classes.Composers
-    Works       = Base.classes.Works
-    Work_Types  = Base.classes.Work_Types
+    Composers   = Base.classes.composers
+    Works       = Base.classes.works
+    Work_Types  = Base.classes.work_types
     
     # Some queries ....
-    
     
  
     # QUERY: 
@@ -133,7 +137,7 @@ def main():
     res = session.execute(stmt)
     
     for rr in res.fetchall(): 
-        print(rr.Work_Types.description, rr.count)
+        print(rr.work_types.description, rr.count)
         
         
     # QUERY:     

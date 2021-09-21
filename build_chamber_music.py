@@ -6,21 +6,22 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
 from sqlalchemy import Column, Integer, String, Date, Sequence
+from sqlalchemy_utils import database_exists, create_database
 
-from connect_utils import connection_string
+from connect_chamber_music import connection_string
 
 import csv
 import sys
 
 def main():
     estring = connection_string()
-
-    print("Connecting to ", estring, "...")
-
+    
     # Create an engine object - seomthing containing all the data needed to
     # connect to the database.
 
     engine = create_engine(estring)
+    if not database_exists(engine.url):
+        create_database(engine.url)
 
     # Create a Session class.
 
@@ -64,8 +65,8 @@ def createComposers(Base, session, engine, csv_file_name):
 
     # Drop the Composers table if necessary.
     
-    if "Composers" in Base.metadata.tables:
-        table = Base.metadata.tables.get("Composers")
+    if "composers" in Base.metadata.tables:
+        table = Base.metadata.tables.get("composers")
     
         Base.metadata.drop_all(engine, [table])
         Base.metadata.remove(table)
@@ -76,7 +77,7 @@ def createComposers(Base, session, engine, csv_file_name):
     # Create the metadata for the Composers table.
  
     class Composer(Base):
-        __tablename__ = 'Composers'
+        __tablename__ = 'composers'
         composer_id = Column(Integer, Sequence('composer_id_seq'), primary_key = True)
         era         = Column(String(50))
         nationality = Column(String(20))
@@ -89,7 +90,7 @@ def createComposers(Base, session, engine, csv_file_name):
    
     session.flush()
     session.commit()
-    
+      
     # Create a list of Composer instances.
    
     instances = []
@@ -113,7 +114,7 @@ def createComposers(Base, session, engine, csv_file_name):
                              death_date = row[6] if row[6]!="" else None)
             instances.append(cmpsr)
      
-    # Add the istances to the Composers table and then flush.
+    # Add the instances to the Composers table and then flush.
     
     session.add_all(instances)
     session.flush()
@@ -122,10 +123,10 @@ def createComposers(Base, session, engine, csv_file_name):
     
 def createWorks(Base, session, engine, csv_file_name):
 
-    # Drop the Composers table if necessary.
+    # Drop the Works table if necessary.
     
-    if "Works" in Base.metadata.tables:
-        table = Base.metadata.tables.get("Works")
+    if "works" in Base.metadata.tables:
+        table = Base.metadata.tables.get("works")
     
         Base.metadata.drop_all(engine, [table])
         Base.metadata.remove(table)
@@ -136,7 +137,7 @@ def createWorks(Base, session, engine, csv_file_name):
     # Create the metadata for the Composers table.
  
     class Work(Base):
-        __tablename__    = 'Works'
+        __tablename__    = 'works'
         work_id          = Column(Integer, Sequence('work_id_seq'), primary_key = True)
         composer_id      = Column(Integer)
         work_type_id     = Column(Integer)
@@ -172,7 +173,7 @@ def createWorks(Base, session, engine, csv_file_name):
                          completion_year = row[7] if row[7]!="" else None)
             instances.append(work)
      
-    # Add the istances to the Composers table and then flush.
+    # Add the instances to the Works table and then flush.
     
     session.add_all(instances)
     session.flush()
@@ -184,8 +185,8 @@ def createWork_Types(Base, session, engine, csv_file_name):
 
     # Drop the Composers table if necessary.
     
-    if "Work_Types" in Base.metadata.tables:
-        table = Base.metadata.tables.get("Work_Types")
+    if "work_types" in Base.metadata.tables:
+        table = Base.metadata.tables.get("work_types")
     
         Base.metadata.drop_all(engine, [table])
         Base.metadata.remove(table)
@@ -193,10 +194,10 @@ def createWork_Types(Base, session, engine, csv_file_name):
         session.flush()
         session.commit()
 
-    # Create the metadata for the Composers table.
+    # Create the metadata for the Work_Types table.
  
     class Work_Type(Base):
-        __tablename__ = 'Work_Types'
+        __tablename__ = 'work_types'
         work_type_id = Column(Integer, Sequence('work_type_id_seq'), primary_key = True)
         description  = Column(String(50))
                 
@@ -219,7 +220,7 @@ def createWork_Types(Base, session, engine, csv_file_name):
                               description  = row[1])
             instances.append(wktype)
      
-    # Add the istances to the Work_Types table and then flush.
+    # Add the instances to the Work_Types table and then flush.
     
     session.add_all(instances)
     session.flush()

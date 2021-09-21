@@ -1,7 +1,7 @@
 def classical_work_string(rr):
-    rrstring = rr.Composers.first_name + " " + rr.Composers.last_name + ": " \
-             + rr.Works.title \
-             + (", "  + rr.Works.opus_no if rr.Works.opus_no is not None else "") + " " \
-             + ("No. " + str(rr.Works.work_no) if rr.Works.work_no is not None else "")
+    rrstring = rr.composers.first_name + " " + rr.composers.last_name + ": " \
+             + rr.works.title \
+             + (", "  + rr.works.opus_no if rr.works.opus_no is not None else "") + " " \
+             + ("No. " + str(rr.works.work_no) if rr.works.work_no is not None else "")
              
     return rrstring
