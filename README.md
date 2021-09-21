@@ -50,7 +50,7 @@ When built, the Chamber_music database contains three simple tables:
 
 # Database Creation
 
-A simple, free-of-charge localhost database can be provisioned using a visual database design tool such as MySQL Workbench or pgAdmin (for postgreSQL) to name but two. The following YouTube tutorial from Mosh Hamedani contains particaularly clear instructions on how to do this:
+A simple, free-of-charge localhost database can be provisioned using a visual database design tool such as MySQL Workbench or pgAdmin (for postgreSQL) to name but two. The following YouTube tutorial from Mosh Hamedani contains particularly clear instructions on how to do this:
 
 http://www.youtube.com/watch?v=7S_tz1z_5bA
 
@@ -67,6 +67,7 @@ There are two approaches to initializing the database.
 ```
 python build_chamber_music.py
 ```
+Note that when using the second approach on a non-MySQL database, the ```connect_utils.py``` script should be altered to reflect the correct port and driver type specification for the database's URL. For instance, when using a PostgreSQL database, the port type should be changed to '5432' and the driver+dialect portion of the database's URL should be changed to 'postgresql'.
 
 # Database Inspection
 
