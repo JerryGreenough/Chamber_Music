@@ -1,7 +1,7 @@
-# Chamber_Music
+# chamber_music
 <strong>Purpose:</strong> Creation and querying of a database of chamber music using MySQL and SQLAlchemy.
 
-The purpose of this project is to provide a simple demonstration of how the ORM functionality provided by Flask SQLAlchemy can be used to create and query a relational database. Once constructed, the database contains references to works of "chamber music", a genre of classical music that requires a samll number of performers - typcially 2-10 musicians. A chamber music work involves a variety of instruments, the most popular form of which is the "String Quartet" which requires 4 performers that invariably consist of: a viola player, a cello player and two violin players. Other forms of chamber music exist, the most popular of which are listed in one of the database tables ("Work_Types").
+The purpose of this project is to provide a simple demonstration of how the ORM functionality provided by Flask SQLAlchemy can be used to create and query a relational database. Once constructed, the database contains references to works of "chamber music", a genre of classical music that requires a samll number of performers - typcially 2-10 musicians. A chamber music work involves a variety of instruments, the most popular form of which is the "String Quartet" which requires 4 performers that invariably consist of: a viola player, a cello player and two violin players. Other forms of chamber music exist, the most popular of which are listed in one of the database tables ("work_types").
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/JerryGreenough/Chamber_Music/master/images/schubert_piano_trio.JPG" width="782" height="444">  
@@ -20,20 +20,20 @@ The enitre repertoire of chamber music contains thousands of works, only a few o
 
 # Database Structure
 
-When built, the Chamber_music database contains three simple tables:
+When built, the chamber_music database contains three simple tables:
 
-* Composers - contains a list of composers along with pertinent fields such as:
+* composers - contains a list of composers along with pertinent fields such as:
     * first name(s)
     * last name
     * birth year
     * death year
     * nationality
     * era (e.g. "Romantic", "Classical", "20th Century")
-* Work_Types - contains a list of possible chamber work types, each of which has a field:
+* work_types - contains a list of possible chamber work types, each of which has a field:
     * description (e.g. "Piano Trio", "Violin Sonata", "Nonet"
-* Works - contains a list of chamber music works with relecant feaures plus two foreign keys that link to the Composers and Work_Types tables.
-    * composer_id (foreign key pointing to the primary key in the Composers table)
-    * work_type_id (foreign key pointing to the primary key in the Work_Types table)
+* works - contains a list of chamber music works with relecant feaures plus two foreign keys that link to the composers and work_types tables.
+    * composer_id (foreign key pointing to the primary key in the composers table)
+    * work_type_id (foreign key pointing to the primary key in the work_types table)
     * title
     * key - the musical key in which the work is deemed to have been written (not always present)
     * opus_no
